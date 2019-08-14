@@ -11,6 +11,7 @@ set php_docroot=%drive_letter%:/env/www
 set php_router=
 
 REM 目录
+set temp_dir=%drive_letter%:\env\tmp
 set soft_dir=%drive_letter%:\env\win\ProgramFiles
 
 set php_dir=%soft_dir%\php-%php_ver%

@@ -6,6 +6,10 @@ set php_v=7.4
 set php_ver=%php_v%.0beta2
 set nginx_ver=1.17.3
 
+REM option
+set php_bat=xxfpm
+::set php_bat=php-cgi
+
 REM argument
 set php_addr=0.0.0.0
 set php_port=80
@@ -20,6 +24,7 @@ REM directory
 set temp_dir=%root_dir%\tmp
 set soft_dir=%root_dir%\win\ProgramFiles
 set data_dir=%root_dir%\win\ProgramData
+set bat_dir=%root_dir%\bin
 
 set php_dir=%soft_dir%\php-%php_ver%
 set nginx_dir=%soft_dir%\nginx-%nginx_ver%

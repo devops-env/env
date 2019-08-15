@@ -11,6 +11,7 @@ set php_addr=0.0.0.0
 set php_port=80
 set php_docroot=%root_dir%/www
 set php_router=
+set php_bind=127.0.0.1:9000
 
 REM directory
 set temp_dir=%root_dir%\tmp
@@ -23,3 +24,4 @@ set nginx_dir=%soft_dir%\nginx-%nginx_ver%
 REM configuration
 set nginx_conf=%data_dir%\nginx\conf\nginx.conf
 ::set nginx_conf=conf/nginx.conf
+set php_ini=%php_dir%/php.ini

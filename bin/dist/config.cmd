@@ -11,7 +11,10 @@ set php_addr=0.0.0.0
 set php_port=80
 set php_docroot=%root_dir%/www
 set php_router=
-set php_bind=127.0.0.1:9000,127.0.0.1:9001,127.0.0.1:9002,127.0.0.1:9003
+set php_bind=127.0.0.1:9000,192.168.100.4:9001
+set php_cgi_addr=127.0.0.1
+set php_cgi_port=9002,9003
+set xxfpm_number=2
 
 REM directory
 set temp_dir=%root_dir%\tmp

@@ -2,5 +2,8 @@
 call config.cmd
 
 echo run PHP-CGI
-start %php_dir%\php-cgi.exe -b %php_bind% -c %php_ini%
+
+FOR %%G IN (%php_bind%) DO (
+    start %php_dir%\php-cgi.exe -b %%G -c %php_ini%
+)
 exit

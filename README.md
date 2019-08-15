@@ -19,6 +19,15 @@ Integrated Development Environment & Production Server Runtime Environment
 php -v
 ```
 
+### Nginx
+
+下载并解压 [nginx/Windows](http://nginx.org/en/download.html)
+
+```sh
+# 打开 cmd 转到解压的目录，运行以下命令测试是否正常
+nginx -h
+```
+
 
 
 ## 运行环境

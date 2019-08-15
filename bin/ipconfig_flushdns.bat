@@ -1,1 +1,1 @@
-ipconfig /flushdns >>../tmp/bin/flushdns.txt
+ipconfig /flushdns >>..\tmp\bin\flushdns.txt

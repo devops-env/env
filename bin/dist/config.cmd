@@ -12,7 +12,10 @@ set php_bat=xxfpm
 
 REM argument
 set php_addr=0.0.0.0
-set php_port=80
+set php_port=8002,80
+::set php_port=
+::set php_listen=192.168.100.4:80,127.0.0.1:8000
+set php_listen=
 set php_docroot=%root_dir%/www
 set php_router=
 set php_bind=127.0.0.1:9000,192.168.100.4:9001

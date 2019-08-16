@@ -1,6 +1,7 @@
 <?php
 define('ROOT_DIR', isset($_ENV['root_dir']) ? $_ENV['root_dir'] : $_SERVER['root_dir']);
 define('QUERY_SPEC', isset($_GET['!']) ? explode(',', $_GET['!']) : array());
+define('QUERY_APP', isset($_GET['@']) ? $_GET['@'] : 'astrophp');
 
 if (in_array('phpinfo', QUERY_SPEC)) {
     phpinfo();
@@ -17,4 +18,5 @@ if (in_array('links', QUERY_SPEC)) {
 	exit;
 }
 
-# include ROOT_DIR .'/www\work\wuding\geminiphp\web\index.php';
+$vhosts = include ROOT_DIR . '/etc/vhosts.php';
+include $vhosts[QUERY_APP];

@@ -8,5 +8,5 @@
 | ---------- | ------ | -------------------- | ---------------------- | ------------- |
 | ROOT_DIR   | string | $_SERVER['root_dir'] | 本环境项目根目录       | www/index.php |
 | QUERY_SPEC | array  | []                   | 查询字符串 !  特别应用 | www/index.php |
-|            |        |                      |                        |               |
+| QUERY_APP  | string |                      | 查询字符串 @  应用名称 | www/index.php |
 

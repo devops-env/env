@@ -1,5 +1,5 @@
 <?php
-define('ROOT_DIR', isset($_ENV['root_dir']) ? $_ENV['root_dir'] : $_SERVER['root_dir']);
+define('ROOT_DIR', dirname(__DIR__));
 define('QUERY_SPEC', isset($_GET['!']) ? explode(',', $_GET['!']) : array());
 define('QUERY_APP', isset($_GET['@']) ? $_GET['@'] : 'astrophp');
 

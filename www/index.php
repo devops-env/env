@@ -1,6 +1,8 @@
 <?php
-include $_SERVER['root_dir'] . '/src/Links.php';
-$config = include $_SERVER['root_dir'] . '/etc/config.php';
+define('ROOT_DIR', isset($_ENV['root_dir']) ? $_ENV['root_dir'] : $_SERVER['root_dir']);
+
+include ROOT_DIR . '/src/Links.php';
+$config = include ROOT_DIR . '/etc/config.php';
 extract($config);
 
 if (isset($_GET['phpinfo'])) {

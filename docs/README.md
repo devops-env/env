@@ -18,5 +18,5 @@
 | ------------------------------------------------------------ | ------------------ |
 | microsoft-edge:https://microsoftedgewelcome.microsoft.com/   | 使用 Edge 浏览网页 |
 | ms-windows-store://collection/?CollectionId=EdgeExtensions&OCID=edgefreextall | Microsoft Store    |
-|                                                              |                    |
+| mk:@MSITStore:H:\ProgramFiles(x86)\UltraISO\UltraISO.chm::/intruduction.htm | IE 查看 CHM 网页   |
 

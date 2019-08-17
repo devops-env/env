@@ -10,3 +10,13 @@
 | QUERY_SPEC | array  | []                   | 查询字符串 !  特别应用 | www/index.php |
 | QUERY_APP  | string |                      | 查询字符串 @  应用名称 | www/index.php |
 
+
+
+## 协议
+
+| 地址                                                         | 描述               |
+| ------------------------------------------------------------ | ------------------ |
+| microsoft-edge:https://microsoftedgewelcome.microsoft.com/   | 使用 Edge 浏览网页 |
+| ms-windows-store://collection/?CollectionId=EdgeExtensions&OCID=edgefreextall | Microsoft Store    |
+|                                                              |                    |
+

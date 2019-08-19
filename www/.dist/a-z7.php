@@ -1,5 +1,7 @@
 <?php
 
+# echo __FILE__;
+
 /**
  * 我的简历
  */
@@ -41,5 +43,13 @@ if (preg_match('/^\/adminer(.*)/i', $_SERVER['REQUEST_URI'], $matches)) {
  */
 if (preg_match('/^\/play(.*)/i', $_SERVER['REQUEST_URI'], $matches)) {
     require ROOT_DIR . '/www\work\wuding\astrology\web\index.php';
+    exit;
+}
+
+/**
+ * { item_description }
+ */
+if (preg_match('/^\/robot(.*)/i', $_SERVER['REQUEST_URI'], $matches)) {
+    require ROOT_DIR .'/www\work\wuding\astrology\web\index.php';
     exit;
 }

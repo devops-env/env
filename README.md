@@ -65,11 +65,12 @@ nginx -h
 
 ### 版本库
 
-| 目录             | 版本库                        | 描述         |
-| ---------------- | ----------------------------- | ------------ |
-| /dev/storage/cdn | https://github.com/wuding/cdn | 内容分发网络 |
-|                  |                               |              |
-|                  |                               |              |
+| 目录                    | 版本库                        | 描述             |
+| ----------------------- | ----------------------------- | ---------------- |
+| /dev/storage/cdn        | https://github.com/wuding/cdn | 内容分发网络     |
+| /dev/storage/mirror/git | github.com, gitee.com         | 子文件夹按域名   |
+| /www/work               | netjoin, wuding               | 子文件夹按用户名 |
+|                         |                               |                  |
 
 
 

@@ -36,5 +36,5 @@ if (preg_match('/\.(?:png|jpg|jpeg|gif|ico)$/i', REQUEST_NAME)) {
     include BASE_DIR . '/app/template/404.html';
 } else { 
     # echo "<p>Welcome to PHP</p>";
-    include 'index.php';
+    include 'rewrite.php';
 }

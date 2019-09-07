@@ -14,12 +14,13 @@ class Alphabet
         $this->files = array(
             'play' => ROOT_DIR . '/www\work\wuding\astrology\web\index.php',
             'robot' => ROOT_DIR .'/www\work\wuding\astrology\web\index.php',
+            'phpliteadmin' => ROOT_DIR .'/dev/storage/mirror/https/bitbucket.org/phpliteadmin/public/downloads/.unzip/phpLiteAdmin_v1-9-8-2/phpliteadmin.php',
         );
 
         if (preg_match('/^\/(wubenli|resume|adminer)(.*)/i', $_SERVER['REQUEST_URI'], $matches)) {
             $func = $matches[1];
 
-        } elseif (preg_match('/^\/(play|robot)(.*)/i', $_SERVER['REQUEST_URI'], $matches)) {
+        } elseif (preg_match('/^\/(play|robot|phpliteadmin)(.*)/i', $_SERVER['REQUEST_URI'], $matches)) {
             $this->key = $matches[1];
             $func = 'func';
         }
@@ -50,7 +51,12 @@ class Alphabet
         return require ROOT_DIR . '/dev\storage\cdn\dist\v1\resume/wubenli.htm';
     }
 
-    public function adminer($version = '4.7.2')
+    public function wubenli()
+    {
+        $this->resume();
+    }
+
+    public function adminer($version = '4.7.3')
     {
         return require ROOT_DIR . "/dev/storage/mirror/https/github.com/vrana/adminer/release/download/v$version/adminer-$version.php";
     }

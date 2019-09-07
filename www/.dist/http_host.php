@@ -3,9 +3,9 @@
 /**
  * { item_description }
  */
-if (preg_match('/^urlnk(.*)$/i', URL_HOST, $matches)) {
+if (preg_match('/^(|lan\.)urlnk(.*)$/i', URL_HOST, $matches)) {
     # print_r($matches);exit;
-    $tld = $matches[1];
+    $tld = $matches[2];
     $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     $extension = pathinfo($path, PATHINFO_EXTENSION);    
 

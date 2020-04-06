@@ -15,12 +15,13 @@ class Alphabet
             'play' => ROOT_DIR . '/www\work\wuding\astrology\web\index.php',
             'robot' => ROOT_DIR .'/www\work\wuding\astrology\web\index.php',
             'phpliteadmin' => ROOT_DIR .'/dev/storage/mirror/https/bitbucket.org/phpliteadmin/public/downloads/.unzip/phpLiteAdmin_v1-9-8-2/phpliteadmin.php',
+            'unicode' => ROOT_DIR .'/tmp/www/unicode.php',
         );
 
         if (preg_match('/^\/(wubenli|resume|adminer)(.*)/i', $_SERVER['REQUEST_URI'], $matches)) {
             $func = $matches[1];
 
-        } elseif (preg_match('/^\/(play|robot|phpliteadmin)(.*)/i', $_SERVER['REQUEST_URI'], $matches)) {
+        } elseif (preg_match('/^\/(play|robot|phpliteadmin|unicode)(.*)/i', $_SERVER['REQUEST_URI'], $matches)) {
             $this->key = $matches[1];
             $func = 'func';
         }

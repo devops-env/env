@@ -7,6 +7,22 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
+DROP TABLE IF EXISTS `book_isbn`;
+CREATE TABLE `book_isbn` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Author` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cover` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Genre` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Publisher` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Published` date DEFAULT NULL,
+  `Pages` int(10) DEFAULT '-1',
+  `isbn` bigint(20) DEFAULT '-1',
+  `Country` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='图书编号';
+
+
 DROP TABLE IF EXISTS `gb_standards`;
 CREATE TABLE `gb_standards` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -121,4 +137,4 @@ CREATE TABLE `url_search` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- 2020-04-24 11:58:27
+-- 2020-04-29 15:24:24

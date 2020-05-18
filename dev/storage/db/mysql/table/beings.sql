@@ -27,6 +27,7 @@ CREATE TABLE `contact_app` (
   `app_account` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tag` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL,
+  `phone` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -49,7 +50,9 @@ CREATE TABLE `contact_item` (
   `people_id` int(10) DEFAULT '0',
   `life_id` int(10) DEFAULT '-1',
   `user_id` int(10) DEFAULT '0',
-  `NickName` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `NickName` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `note` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `memo` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -98,12 +101,18 @@ CREATE TABLE `email_services` (
 DROP TABLE IF EXISTS `life`;
 CREATE TABLE `life` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `quotient` double DEFAULT NULL,
   `glyph` char(1) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `person` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `hex` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `thirty_six` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sixty_two` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `bin` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `years` bigint(20) DEFAULT NULL,
+  `months` bigint(20) DEFAULT NULL,
+  `cycle` bigint(20) DEFAULT NULL,
+  `hours` bigint(20) DEFAULT NULL,
+  `minutes` bigint(20) DEFAULT NULL,
   `timestamp` bigint(20) DEFAULT NULL,
   `unix` bigint(20) DEFAULT NULL,
   `leap` tinyint(1) DEFAULT NULL,
@@ -140,6 +149,13 @@ DROP TABLE IF EXISTS `people_names`;
 CREATE TABLE `people_names` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `Birthday` date DEFAULT NULL,
+  `birth_day` tinyint(2) DEFAULT NULL,
+  `birthMonth` tinyint(2) DEFAULT NULL,
+  `birthYear` int(10) DEFAULT NULL,
+  `deathYear` int(10) DEFAULT NULL,
+  `deathMonth` tinyint(2) DEFAULT NULL,
+  `deathDay` tinyint(2) DEFAULT NULL,
+  `age` int(10) DEFAULT NULL,
   `Gender` tinyint(1) DEFAULT '0' COMMENT '-2女变男-1男变女0未知1男2女',
   `FamilyName` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `GivenName` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -201,6 +217,23 @@ CREATE TABLE `porn_star` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='色情演员';
 
 
+DROP TABLE IF EXISTS `tel_call`;
+CREATE TABLE `tel_call` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` tinyint(1) DEFAULT NULL COMMENT '0普通1FaceTime2WhatsApp',
+  `from` int(10) DEFAULT NULL,
+  `to` int(11) DEFAULT NULL,
+  `time` datetime DEFAULT NULL,
+  `length` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '-1未接-2对方挂断',
+  `bytes` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cost` double DEFAULT NULL,
+  `memo` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `note` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `app_tags` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
 DROP TABLE IF EXISTS `tel_list`;
 CREATE TABLE `tel_list` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -210,6 +243,9 @@ CREATE TABLE `tel_list` (
   `number` bigint(20) DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL COMMENT '-2未使用-1未开通0未知1正常2欠费3过期4销户',
   `apple_id` tinyint(1) DEFAULT NULL COMMENT '-1否0未知1是',
+  `bind_apps` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `app_tags` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '-3响一声-2推销-1骚扰0未知1正常',
+  `note` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -228,4 +264,4 @@ CREATE TABLE `user_account` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- 2020-04-29 15:18:29
+-- 2020-05-18 12:24:58

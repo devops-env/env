@@ -7,14 +7,22 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-INSERT INTO `book_isbn` (`id`, `Author`, `title`, `cover`, `Genre`, `Publisher`, `Published`, `Pages`, `isbn`, `Country`) VALUES
-(1,	'Stormy Daniels',	'Full Disclosure',	'',	'Memoir',	'St. Martin\'s Press',	'2018-10-02',	288,	9781250205568,	'United States');
+INSERT INTO `article_list` (`id`, `people_id`, `book_id`, `title`, `content`, `writeYear`) VALUES
+(1,	701762,	NULL,	'送郄昂谪巴中',	'瑶草寒不死，移植沧江滨。 东风洒雨露，会入天地春。 予若洞庭叶，随波送逐臣。 思归未可得，书此谢情人。',	758);
+
+INSERT INTO `book_isbn` (`id`, `people_id`, `Author`, `title`, `cover`, `Genre`, `Publisher`, `publishYear`, `Published`, `Pages`, `isbn`, `Country`) VALUES
+(1,	NULL,	'Stormy Daniels',	'Full Disclosure',	'',	'Memoir',	'St. Martin\'s Press',	NULL,	'2018-10-02',	288,	9781250205568,	'United States'),
+(2,	14586,	NULL,	'史记',	NULL,	NULL,	NULL,	-94,	NULL,	-1,	-1,	NULL);
 
 
+
+INSERT INTO `search_url` (`id`, `category`, `title`, `url`, `param`, `example`, `created`, `updated`) VALUES
+(1,	7,	'Wikidata',	'https://www.wikidata.org/w/index.php?search=%s',	NULL,	'Dina Pearl',	NULL,	NULL);
 
 INSERT INTO `unicode_block` (`id`, `plane`, `start`, `end`, `code_points`, `assigned`, `unused`, `name`, `chinese`, `scripts`) VALUES
 (1,	0,	0,	127,	128,	128,	0,	'Basic Latin',	'基本拉丁文',	NULL),
-(2,	0,	128,	128,	128,	128,	0,	'Latin-1 Supplement',	'拉丁文补充 1',	NULL);
+(2,	0,	128,	128,	128,	128,	0,	'Latin-1 Supplement',	'拉丁文补充 1',	NULL),
+(3,	0,	256,	383,	128,	128,	NULL,	'Latin Extended-A',	'拉丁文扩展A',	NULL);
 
 INSERT INTO `unicode_like` (`id`, `name`, `chars`) VALUES
 (1,	'连字号，减号',	'45,8722'),
@@ -64,7 +72,7 @@ INSERT INTO `unicode_plane` (`id`, `start`, `end`, `allocated`, `assigned`, `pla
 INSERT INTO `unicode_series` (`id`, `name`, `series`) VALUES
 (1,	'Currency symbol',	'36,162,163,164,165');
 
-INSERT INTO `url_search` (`id`, `url`, `eg`) VALUES
+INSERT INTO `url_template` (`id`, `url`, `eg`) VALUES
 (1,	'https://www.fileformat.info/info/unicode/char/%s/index.htm',	'2400');
 
--- 2020-04-29 15:27:02
+-- 2020-05-18 12:41:01

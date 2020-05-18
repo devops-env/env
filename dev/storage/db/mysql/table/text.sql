@@ -7,14 +7,28 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
+DROP TABLE IF EXISTS `article_list`;
+CREATE TABLE `article_list` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `people_id` int(10) DEFAULT NULL,
+  `book_id` int(10) DEFAULT NULL,
+  `title` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content` varchar(2048) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `writeYear` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
 DROP TABLE IF EXISTS `book_isbn`;
 CREATE TABLE `book_isbn` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `people_id` int(10) DEFAULT NULL,
   `Author` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `title` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cover` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Genre` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Publisher` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `publishYear` int(10) DEFAULT NULL,
   `Published` date DEFAULT NULL,
   `Pages` int(10) DEFAULT '-1',
   `isbn` bigint(20) DEFAULT '-1',
@@ -43,6 +57,20 @@ DROP TABLE IF EXISTS `rfc_documents`;
 CREATE TABLE `rfc_documents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `number` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `search_url`;
+CREATE TABLE `search_url` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category` int(10) DEFAULT NULL,
+  `title` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `param` varchar(512) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `example` varchar(512) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created` int(10) DEFAULT NULL,
+  `updated` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -128,8 +156,24 @@ CREATE TABLE `unicode_series` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
-DROP TABLE IF EXISTS `url_search`;
-CREATE TABLE `url_search` (
+DROP TABLE IF EXISTS `url_entry`;
+CREATE TABLE `url_entry` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) DEFAULT NULL,
+  `text` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `length` int(10) DEFAULT NULL COMMENT '字符长度',
+  `strlen` int(10) DEFAULT NULL COMMENT '字节长度',
+  `type` tinyint(1) DEFAULT NULL COMMENT '0未知1字符2单词3词组',
+  `note` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  `total` int(10) DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `url_template`;
+CREATE TABLE `url_template` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `url` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `eg` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -137,4 +181,4 @@ CREATE TABLE `url_search` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- 2020-04-29 15:24:24
+-- 2020-05-18 12:37:35

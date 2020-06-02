@@ -27,14 +27,17 @@ if ($ini_reset) {
 否则会有 PATH_INFO，用入口文件处理
 **/
 define('REQUEST_NAME', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-define('BASE_DIR', dirname(__DIR__));
+define('ENV_DIR', dirname(__DIR__));
+
+// 配置
+$_CONFIG = include ENV_DIR . '/etc/config.php';
+
 $request_filename = __DIR__ . REQUEST_NAME;
-if (preg_match('/\.(?:png|jpg|jpeg|gif|ico)$/i', REQUEST_NAME)) {
+if ($_CONFIG['extensions'] && preg_match('/\.(?:'. $_CONFIG['extensions'] .')$/i', REQUEST_NAME, $matches)) {
     if (file_exists($request_filename)) {
         return false;    // 直接返回请求的文件
     }
-    include BASE_DIR . '/app/template/404.html';
-} else { 
-    # echo "<p>Welcome to PHP</p>";
-    include 'rewrite.php';
 }
+
+# echo "<p>Welcome to PHP</p>";
+include_once 'rewrite.php';

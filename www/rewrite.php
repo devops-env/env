@@ -5,7 +5,10 @@ $_CONST = array();
 $_CONST['QUERY_SPEC'] = isset($_GET['!']) ? explode(',', $_GET['!']) : array();
 
 define('ROOT_DIR', dirname(__DIR__));
-define('QUERY_APP', isset($_GET['@']) ? $_GET['@'] : 'astrophp');
+
+// 配置
+$_CONFIG = include ENV_DIR . '/etc/config.php';
+define('QUERY_APP', isset($_GET['@']) ? $_GET['@'] : $_CONFIG['app_default']);
 
 if (in_array('phpinfo', $_CONST['QUERY_SPEC'])) {
     phpinfo();
